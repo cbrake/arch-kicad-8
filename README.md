@@ -3,6 +3,9 @@
 This is a fork of git@github.com:cbrake/arch-kicad-8.git that can be used to
 build and install KiCad 8.0 on Arch Linux.
 
+This installs in parallel with KiCad 7 as `kicad-nightly` so you can run both
+7.0 and 8.0 untill 8.0 is offically release in the KiCad packages.
+
 ## Install KiCad 8 application from source
 
 - `git clone https://github.com/cbrake/arch-kicad-8.git`
