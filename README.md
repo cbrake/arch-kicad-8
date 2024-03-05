@@ -14,6 +14,8 @@ This installs in parallel with KiCad 7.0 so you can run both if needed.
 
 ## Install pre-built binary
 
+You can also download the binary built above if you don't want to build it:
+
 https://files.bec-systems.com/kicad/
 
 ## Install libraries
