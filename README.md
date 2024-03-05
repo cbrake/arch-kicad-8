@@ -15,3 +15,7 @@ build and install KiCad 8.0 on Arch Linux.
 And you should be off an running ...
 
 This installs in parallel with KiCad 7.0 so you can run both if needed.
+
+You can also download a pre-built KiCad binary from:
+
+https://files.bec-systems.com/kicad/
