@@ -2,7 +2,8 @@
 # Maintainer: Rafael Silva <perigoso@riseup.net>
 
 pkgname=kicad-nightly
-pkgver=8.99.0_249_g34a6e605de
+#pkgver=8.99.0_249_g34a6e605de
+pkgver=8.0.0_0_g942661fc10
 pkgrel=1
 pkgdesc='Electronic schematic and printed circuit board (PCB) design tools'
 arch=('x86_64')
@@ -16,7 +17,7 @@ optdepends=(
 	'kicad-library-3d-nightly: for 3d models of components'
 )
 source=(
-	'git+https://gitlab.com/kicad/code/kicad.git'#commit=34a6e605de
+	'git+https://gitlab.com/kicad/code/kicad.git'#tag=8.0.0
 	'kicad-nightly.env'
 	'no-metadata-translation.patch'
 )
@@ -26,8 +27,7 @@ sha256sums=(
 	'649b1b0e541f22a49f1934a6173266cabde984a97fba583c3b75dd41940b86f8'
 )
 
-prepare()
-{
+prepare() {
 	cd "$srcdir/kicad"
 
 	# override default icons with nightly ones
@@ -37,8 +37,7 @@ prepare()
 	patch -p0 -i ../no-metadata-translation.patch
 }
 
-build()
-{
+build() {
 	cd "$srcdir/kicad"
 
 	rm -rf build
@@ -60,8 +59,7 @@ build()
 	ninja
 }
 
-package()
-{
+package() {
 	cd "$srcdir/kicad/build"
 
 	DESTDIR="$pkgdir" ninja install
@@ -84,7 +82,7 @@ package()
 
 	mkdir -p "$pkgdir/usr/bin"
 	(cd "$pkgdir/usr/lib/kicad-nightly/bin" && ls | grep -v '\.kiface') | while read prog; do
-		cat > "$pkgdir/usr/bin/$prog-nightly" <<EOF
+		cat >"$pkgdir/usr/bin/$prog-nightly" <<EOF
 #!/bin/sh
 . /usr/share/kicad-nightly/kicad-nightly.env
 exec /usr/lib/kicad-nightly/bin/$prog "\$@"
