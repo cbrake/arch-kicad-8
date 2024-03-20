@@ -1,3 +1,7 @@
+**KiCad 8 is now in the main KiCad feeds, this should not be used any more**
+
+https://archlinux.org/packages/?q=kicad
+
 # KiCad 8.0 PKGBUILD
 
 This is a fork of
